@@ -22,6 +22,8 @@ const Newrequest = ({ simplified }) => {
     });
 
     setVehicle("");
+    setDescription("");
+    setLocation("");
   }
 
   return (

@@ -25,10 +25,10 @@ const Vehicle = ({ simplified }) => {
     });
 
     setTitle("");
-    //setMaker("");
-    //setModel("");
-    //setYear("");
-    //setColor("");
+    setMaker("");
+    setModel("");
+    setYear("");
+    setColor("");
   }
 
   return (
