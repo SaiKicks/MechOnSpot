@@ -1,16 +1,18 @@
 import firebase from "firebase";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCHCcR9tOZagYf42ttfBNDxLNhXHRAWGxM",
-  authDomain: "mechonspot-47e10.firebaseapp.com",
-  projectId: "mechonspot-47e10",
-  storageBucket: "mechonspot-47e10.appspot.com",
-  messagingSenderId: "1048907855127",
-  appId: "1:1048907855127:web:b5202412afcd924a997352"
+  apiKey: "AIzaSyDgeWP3WYyZuBj1YRtqW6rU57NauMl6x6Y",
+  authDomain: "mechonspot-76d2f.firebaseapp.com",
+  projectId: "mechonspot-76d2f",
+  storageBucket: "mechonspot-76d2f.appspot.com",
+  messagingSenderId: "973601647548",
+  appId: "1:973601647548:web:6e2a344932aa5b5c9999b9",
+  measurementId: "G-EGLGXFWYSS"
 };
 
 firebase.initializeApp(firebaseConfig);
 
 const db = firebase.firestore();
+const storage = firebase.storage();
 
-export { db };
+export { db, storage};

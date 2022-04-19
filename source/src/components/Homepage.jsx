@@ -20,7 +20,7 @@ const Homepage = () => {
   useEffect(() => {
     getVehicles();
   }, []); // blank to run only on first launch
-
+  
   function getRequests() {
     db.collection("requests").onSnapshot(function (querySnapshot) {
       setRequests(
@@ -33,9 +33,11 @@ const Homepage = () => {
         }))
       );
     });
+    
   }
 
   function getVehicles() {
+    
     db.collection("vehicles").onSnapshot(function (querySnapshot) {
       setVehicles(
         querySnapshot.docs.map((doc) => ({
@@ -48,55 +50,65 @@ const Homepage = () => {
         }))
       );
     });
+    
   }
 
   function deleteVehicle(id) {
-    db.collection("vehicles").doc(id).delete();
+   
+     db.collection("vehicles").doc(id).delete();
+  
   }
 
   return (
     <>
-      <Title level={2} className="heading">Requests</Title>
-        <div style={{ maxWidth: "1050px", marginTop: "24px" }}>
+    
+      <Title level={2} className="heading">Your Requests</Title>
+        <div style={{ maxWidth: "1050px", marginTop: "24px"}}>
             <Row gutter={[24, 24]} style={{ fontWeight: "bold" }}>
-              <Col span={4}> Request Id </Col>
+              <Col span={6} > Request Id </Col>
               <Col span={4}> Vehicle </Col>
               <Col span={4}> Description </Col>
-              <Col span={4}> Location </Col>
+              <Col span={6}> Location </Col>
               <Col span={4}> Status </Col>
             </Row>
           {requests.map((request) => (
           <Row gutter={[24, 24]}>
-            <Col span={4}> {request.id} </Col>
-            <Col span={4}> {request.vehicle} </Col>
-            <Col span={4}> {request.description} </Col>
-            <Col span={4}> {request.location} </Col>
+            <Col span={6} style={{overflow:'wrap'}}> {request.id} </Col>
+            <Col span={4} style={{overflow:'wrap'}}> {request.vehicle} </Col>
+            <Col span={4} style={{overflow:'wrap'}}> {request.description} </Col>
+            <Col span={6}> {request.location} </Col>
             <Col span={4}> {request.status} </Col>
           </Row>
           ))}
         </div>
+        <br/><br/>
         <Title level={2} className="heading">Your vehicles information</Title>
         <div style={{ maxWidth: "1050px", marginTop: "24px" }}>
-            <Row gutter={[24, 24]} style={{ fontWeight: "bold" }}>
+            <Row gutter={[40, 40]} style={{ fontWeight: "bold" }}>
               <Col span={4}> Title </Col>
               <Col span={4}> Maker </Col>
               <Col span={4}> Model </Col>
               <Col span={4}> Color </Col>
               <Col span={4}> Year </Col>
             </Row>
-          {vehicles.map((vehicle) => (
-            <Row gutter={[24, 24]}>
+            
+          {
+          vehicles.map((vehicle) => (
+            
+            <Row gutter={[40, 40]}> 
               <Col span={4}> {vehicle.title} </Col>
               <Col span={4}> {vehicle.maker} </Col>
               <Col span={4}> {vehicle.model} </Col>
               <Col span={4}> {vehicle.color} </Col>
               <Col span={4}> {vehicle.year} </Col>
-              <Col span={4}> <button onClick={deleteVehicle()}>Delete</button> </Col>
+              <Col span={4}> <button onClick={()=>deleteVehicle(vehicle.id)}>Delete</button> </Col>
             </Row>
-          ))}
+          ) )
+          }
+        
         </div>
     </>
-  );
+  ); 
 };
 
 export default Homepage;
