@@ -29,11 +29,13 @@ const Vehicle = ({ simplified }) => {
     setModel("");
     setYear("");
     setColor("");
+
+    alert("New vehicle is added to your collection")
   }
 
   return (
     <>
-      <Title level={2} className="heading">Add Vehicle</Title>
+      <Title level={2} style={{margin:"2em 0 1em 22em",color:"#1890ff"}}>Add Vehicle</Title>
       <div className="create">
       <form>
         <label>Title</label>
@@ -71,7 +73,7 @@ const Vehicle = ({ simplified }) => {
           value={color}
           onChange={(e) => setColor(e.target.value)}
         />          
-        <button             
+        <button            
             type="submit"
             variant="contained"
             onClick={addVehicle}>

@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Typography, Upload } from 'antd';
+import React, { useState } from 'react';
+import { Typography } from 'antd';
 
 import Loader from './Loader';
 import { db, storage } from "../firebase_config";
@@ -10,56 +10,61 @@ const Newrequest = ({ simplified }) => {
   const [vehicle, setVehicle] = useState('');
   const [description, setDescription] = useState('');
   const [location, setLocation] = useState('');
+  const [contact,setContact]= useState('');
   const [image, setimage] = useState(null);
   
+  
   function addRequest(e) {
-    console.log(image)
+    
     e.preventDefault();
-    const uploadimage=storage.ref("images")
-    .child(image.name)
+    const uploadimage=storage.ref(`images/${image.name}`)    
     .put(image);
-    uploadimage.on("state_changed",(snapshot)=>{
-      let progress=((snapshot.bytesTansferred/snapshot.totalBytes)*100);
-      console.log(progress);
-     },(err)=>{console.log(err),
-      ()=>storage.ref("images")
+    
+    uploadimage.on('state_changed',
+    (snapshot)=>{
+     
+     },
+     (error)=>{console.log(error);}
+      ,
+    ()=>storage.ref('images')
     .child(image.name)
     .getDownloadURL()
     .then((imageurl)=>{
-    db.collection("requests").add({
-      
-      image:imageurl
-    });
-  
-  });
-});
-db.collection("requests").add({
-  status: "mechanic arriving",
-  vehicle: vehicle,
-  description: description,
-  location: location,
-  imagename:image.name
-  
-});
-
+      db.collection("requests").add({
+        status: "mechanic arriving",
+        contact:contact,
+        vehicle: vehicle,
+        description: description,
+        location: location,
+        imagename:image.name,
+        imageurl:imageurl
+      });
+    })
+    
+  );
     setVehicle("");
     setDescription("");
     setLocation("");
     setimage(null);
-  }
-function handleimage(e){
-  e.preventDefault();
-  let pickedfile;
- pickedfile=e.target.file[0];
- setimage(pickedfile);
 
-}
+    alert("request is creted successfully")
+  }
+
+
   return (
     <>
-      <Title level={2} className="heading">Add Requests</Title>
+      <Title level={2} style={{ margin:"2em 0 1em 22em",color:"#1890ff"}}>Add Request</Title>
       <div className="create">
       
       <form>
+      <label>Contact</label>
+        <input 
+          type="text" 
+          required 
+          value={contact}
+          onChange={(e) => setContact(e.target.value)}
+          
+        />
         <label>Vehicle</label>
         <input 
           type="text" 
@@ -79,7 +84,7 @@ function handleimage(e){
           value={location}
           onChange={(e) => setLocation(e.target.value)}
         ></textarea>
-        <input type="file"         
+        <input type="file" style={{color:"white"}}       
         onChange={(e) => setimage(e.target.files[0])}></input>
         <button             
             type="submit"
