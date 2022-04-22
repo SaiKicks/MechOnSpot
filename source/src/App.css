@@ -159,7 +159,7 @@ a:hover {
 /* create new blog form */
 .create {
   max-width: 400px;
-  margin: 0 auto;
+  margin: 0 25em;
   text-align: center;
   color: black;
 }
@@ -200,4 +200,51 @@ a:hover {
   color:black;
   width:60px;
   border:none;
+}
+hr {
+  width: 80em;
+  border: none;
+  border-top: 1px solid rgba(255,255,255,.3);
+  border-bottom: 1px solid rgba(0,0,0,.08);
+  margin: 2.5em 0;
+  position: relative;
+}
+hr:after,hr:before {
+  content: '';
+  position: absolute;
+  bottom:auto;
+  height: 1em;
+  width: 100%;
+  background: radial-gradient(ellipse at top, rgba(255,255,255,0.35) 0%,rgba(255,255,255,0) 70%);
+  z-index:0;
+}
+hr:before {
+  top:0px;
+  bottom:auto;
+  height: 1em;
+  background: radial-gradient(ellipse at bottom, rgba(0,0,0,0.06) 0%,rgba(0,0,0,0) 70%);
+}
+
+.Tips h3 {
+  text-align: center;
+  color:white;
+  
+}
+.about, .Tips p{
+  opacity:0.6;
+  
+}
+
+.about{
+  text-align: center;
+  margin-top: 2em;
+  width:80em
+}
+.about hr {
+  width: 50em;
+  border: none;
+  border-top: 1px solid rgba(255,255,255,.3);
+  border-bottom: 1px solid rgba(0,0,0,.08);
+  margin: 2.5em 0;
+  position: relative;
 }

@@ -77,51 +77,51 @@ function getimage(imageurl){
   return (
     <>
     
-      <Title level={2} style={{textDecoration :"underline",margin:"0 0 0 15em",color:"white", opacity:"0.8"}}>YOUR REQUESTS</Title>
+      <Title level={2} style={{textDecoration :"underline",margin:"0 0 0 15em",color:"#1890ff", opacity:"0.8"}}>YOUR REQUESTS</Title>
         <div style={{ maxWidth: "1050px", marginTop: "30px"}}>
-            <Row gutter={[40, 40]} style={{ fontWeight: "bold", color:'#1890ff'}}>
-              <Col span={5} > REQUEST ID </Col>
-              <Col span={3}> VEHICLE </Col>
-              <Col span={3}> DESCRIPTION </Col>
-              <Col span={3}> LOCATION </Col>
-              <Col span={3}> STATUS </Col>
-              <Col span={3}> CONTACT </Col>
-              <Col span={3}> IMAGE </Col>
+            <Row gutter={[40, 40]} style={{ fontWeight: "bold", color:'white'}}>
+              <Col span={5} style={{overflow:'hidden',textAlign:'center'}} > REQUEST ID </Col>
+              <Col span={3} style={{overflow:'hidden',textAlign:'center'}}> VEHICLE </Col>
+              <Col span={3} style={{overflow:'hidden',textAlign:'center'}}> DESCRIPTION </Col>
+              <Col span={3} style={{overflow:'hidden',textAlign:'center'}}> LOCATION </Col>
+              <Col span={3} style={{overflow:'hidden',textAlign:'center'}}> STATUS </Col>
+              <Col span={3} style={{overflow:'hidden',textAlign:'center'}}> CONTACT </Col>
+              <Col span={3} style={{overflow:'hidden',textAlign:'center'}}> IMAGE </Col>
             </Row>
           {requests.map((request) => (
           <Row gutter={[40, 40]} style={{ padding:"10px 0 0 0"}}>
-            <Col span={5} style={{overflow:'wrap'}}> {request.id} </Col>
-            <Col span={3} style={{overflow:'wrap'}}> {request.vehicle} </Col>
-            <Col span={3} style={{overflow:'hidden'}}> {request.description} </Col>
-            <Col span={3} style={{overflow:'hidden'}}>  {request.location} </Col>
-            <Col span={3} style={{overflow:'hidden'}} > {request.status} </Col>
-            <Col span={3} style={{overflow:'hidden'}} > {request.contact} </Col>
-            <Col span={3} style={{overflow:'hidden'}}> {getimage(request.imageurl)} </Col>
+            <Col span={5} style={{opacity:'0.6',overflow:'wrap',textAlign:'center'}}> {request.id} </Col>
+            <Col span={3} style={{opacity:'0.6',overflow:'wrap',textAlign:'center'}}> {request.vehicle} </Col>
+            <Col span={3} style={{opacity:'0.6',overflow:'hidden',textAlign:'center'}}> {request.description} </Col>
+            <Col span={3} style={{opacity:'0.6',overflow:'hidden',textAlign:'center'}}>  {request.location} </Col>
+            <Col span={3} style={{opacity:'0.6',overflow:'hidden',textAlign:'center'}}> {request.status} </Col>
+            <Col span={3} style={{opacity:'0.6',overflow:'hidden',textAlign:'center'}}> {request.contact} </Col>
+            <Col span={3} style={{overflow:'hidden',textAlign:'center'}}> {getimage(request.imageurl)} </Col>
           </Row>
           ))}
         </div>
-        <br/><br/>
-        <Title level={2} style={{textDecoration :"underline",marginLeft:"12em",color:"WHITE", opacity:"0.8"}}>YOUR VEHICLES INFORMATION</Title>
+        <br/><hr/><br/>
+        <Title level={2} style={{textDecoration :"underline",marginLeft:"12em",color:"#1890ff", opacity:"0.8"}}>YOUR VEHICLES INFORMATION</Title>
         <div style={{ maxWidth: "1050px", marginTop: "30px" }}>
-            <Row gutter={[40, 40]} style={{ fontWeight: "bold",color:"#1890ff"}}>
-              <Col span={4}> TITLE </Col>
-              <Col span={4}> MAKER </Col>
-              <Col span={4}> MODEL </Col>
-              <Col span={4}> COLOR </Col>
-              <Col span={4}> YEAR </Col>
-              <Col span={4}> ACTION </Col>
+            <Row gutter={[40, 40]} style={{ fontWeight: "bold",color:"white"}}>
+              <Col span={4} style={{overflow:'hidden',textAlign:'center'}}> TITLE </Col>
+              <Col span={4} style={{overflow:'hidden',textAlign:'center'}}> MAKER </Col>
+              <Col span={4} style={{overflow:'hidden',textAlign:'center'}}> MODEL </Col>
+              <Col span={4} style={{overflow:'hidden',textAlign:'center'}}> COLOR </Col>
+              <Col span={4} style={{overflow:'hidden',textAlign:'center'}}> YEAR </Col>
+              <Col span={4} style={{overflow:'hidden',textAlign:'center'}}> ACTION </Col>
             </Row>
             
           {
           vehicles.map((vehicle) => (
             
             <Row gutter={[40, 40]}  style={{padding:"20px"}}> 
-              <Col span={4}> {vehicle.title} </Col>
-              <Col span={4}> {vehicle.maker} </Col>
-              <Col span={4}> {vehicle.model} </Col>
-              <Col span={4}> {vehicle.color} </Col>
-              <Col span={4}> {vehicle.year} </Col>
-              <Col span={4}> <button class="del" onClick={()=>deleteVehicle(vehicle.id)}>Delete</button> </Col>
+              <Col span={4} style={{opacity:'0.6', overflow:'hidden',textAlign:'center'}}> {vehicle.title} </Col>
+              <Col span={4} style={{opacity:'0.6',overflow:'hidden',textAlign:'center'}}> {vehicle.maker} </Col>
+              <Col span={4} style={{opacity:'0.6',overflow:'hidden',textAlign:'center'}}> {vehicle.model} </Col>
+              <Col span={4} style={{opacity:'0.6',overflow:'hidden',textAlign:'center'}}> {vehicle.color} </Col>
+              <Col span={4} style={{opacity:'0.6',overflow:'hidden',textAlign:'center'}}> {vehicle.year} </Col>
+              <Col span={4} style={{overflow:'hidden',textAlign:'center'}}> <button class="del" onClick={()=>deleteVehicle(vehicle.id)}>Delete</button> </Col>
             </Row>
           ))
           }

@@ -35,7 +35,7 @@ const Vehicle = ({ simplified }) => {
 
   return (
     <>
-      <Title level={2} style={{margin:"2em 0 1em 22em",color:"#1890ff"}}>Add Vehicle</Title>
+      <Title level={2} style={{margin:"2em 0 1em 15em",color:"#1890ff"}}>Add Vehicle</Title>
       <div className="create">
       <form>
         <label>Title</label>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Menu, Typography, Avatar } from 'antd';
 import { Link } from 'react-router-dom';
-import { HomeOutlined, MenuOutlined, PlusOutlined, CarOutlined, UserOutlined } from '@ant-design/icons';
+import { HomeOutlined, MenuOutlined, PlusOutlined, CarOutlined, UserOutlined, ToolOutlined  } from '@ant-design/icons';
 
 import icon from '../images/mechonspot.jpg';
 
@@ -47,6 +47,9 @@ const Navbar = () => {
         </Menu.Item>
         <Menu.Item icon={<UserOutlined />}>
           <Link to="/About">About</Link>
+        </Menu.Item>
+        <Menu.Item icon={<ToolOutlined  />}>
+          <Link to="/Tips">Tips</Link>
         </Menu.Item>
       </Menu>
       )}

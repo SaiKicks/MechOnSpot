@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { Layout } from 'antd';
 
-import { Vehicle, Homepage, Navbar, Newrequest, About } from './components';
+import { Vehicle, Homepage, Navbar, Newrequest, About, Tips } from './components';
 import './App.css';
 
 const App = () => (
@@ -25,6 +25,9 @@ const App = () => (
             </Route>
             <Route exact path="/about">
               <About />
+            </Route>
+            <Route exact path="/Tips">
+              <Tips />
             </Route>
           </Switch>
         </div>
